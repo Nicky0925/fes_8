@@ -46,7 +46,7 @@
            </table>
         </div>
         <!-- jsで現在時刻を取得　表示 -->
-        <div class="time">
+        <div class="time" id="daikon">
         </div>
         <div class="teriyaki">
           <table border="1" width="400" height="161" cellspacing="0" cellpadding="5" bordercolor="#333333">
@@ -71,5 +71,32 @@
       </div>
     </div>
   </div>
+<script>
+  // 現在時刻
+  function timer() {
+    setInterval("cTime()", 1000);
+  }
+  function cTime() {
+    var nTime = new Date();
+    var month = nTime.getMonth()+1;
+    var day = nTime.getDay();
+    var h = nTime.getHours();
+    var m = nTime.getMinutes();
+    var s = nTime.getSeconds();
+
+    if(month < 10) month = "0"+month;
+    if(day < 10) day = "0"+day;
+    if(h < 10) h = "0"+h;
+    if(m < 10) m = "0"+m;
+    if(s < 10) s = "0"+s;
+
+    if(document.getElementById) {
+      document.getElementById("daikon").innerHTML = month+"/"+day+"<br>"+h+":"+m+":"+s;
+    }
+  }
+  timer();
+</script>
+<!-- あしたやろう -->
+<script src=""></script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+   <meta charset="utf-8">
+</head>
+<body>
+  <div id="time" style="height="200px" font-size: 10px;">
+  </div>
+<script>
+  function timer() {
+    setInterval("cTime()", 1000);
+  }
+  function cTime() {
+    var nTime = new Date();
+    var month = nTime.getMonth()+1;
+    var day = nTime.getDay();
+    var h = nTime.getHours();
+    var m = nTime.getMinutes();
+    var s = nTime.getSeconds();
+
+    if (month < 10) month = "0"+month;
+    if (day < 10) day = "0"+day;
+    if (h < 10) h = "0"+h;
+    if (m < 10) m = "0"+m;
+    if (s < 10) s = "0"+s;
+
+    if (document.getElementById) {
+      document.getElementById("time").innerHTML = month+"/"+day+"<br>"+h+":"+m+":"+s;
+    } else {
+      document.write("jsが対応していません");
+    }
+  }
+  timer();
+</script>
+</body>
+</html>
